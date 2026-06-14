@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="108dp"
+    android:height="108dp"
+    android:viewportWidth="108"
+    android:viewportHeight="108">
+  <group android:translateX="27" android:translateY="20">
+        <!-- Bag body -->
+        <path
+            android:fillColor="#FFFFFF"
+            android:pathData="M27,28 C12,28 2,38 2,52 C2,66 12,78 27,78 C42,78 52,66 52,52 C52,38 42,28 27,28 Z"/>
+        <!-- Bag neck -->
+        <path
+            android:fillColor="#FFFFFF"
+            android:pathData="M18,28 C18,22 36,22 36,28 L18,28 Z"/>
+        <!-- Bag knot top -->
+        <path
+            android:fillColor="#FFFFFF"
+            android:pathData="M22,18 C22,14 32,14 32,18 C36,18 38,22 36,25 L18,25 C16,22 18,18 22,18 Z"/>
+        <!-- Star symbol inside bag -->
+        <path
+            android:fillColor="#9b59d0"
+            android:pathData="M27,40 L29,46 L35,46 L30,50 L32,56 L27,52 L22,56 L24,50 L19,46 L25,46 Z"/>
+  </group>
+</vector>
