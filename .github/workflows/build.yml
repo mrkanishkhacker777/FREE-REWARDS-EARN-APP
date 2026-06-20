@@ -19,18 +19,20 @@ jobs:
       - name: Make gradlew executable
         run: chmod +x gradlew
         
-      - name: Build Release APK
-        shell: bash
+      - name: Decode Keystore
         run: |
-          set -x
-          java -version
-          ./gradlew assembleRelease --stacktrace --info 2>&1 || true
-          echo "BUILD DONE"
-          ls -la app/build/outputs/apk/ 2>&1 || echo "No APK folder found"
+          echo "${{ secrets.KEYSTORE_BASE64 }}" | base64 -d > keystore/getredeemcode.jks
+          
+      - name: Build Release APK
+        run: ./gradlew assembleRelease
+        env:
+          STORE_PASSWORD: ${{ secrets.STORE_PASSWORD }}
+          KEY_ALIAS: ${{ secrets.KEY_ALIAS }}
+          KEY_PASSWORD: ${{ secrets.KEY_PASSWORD }}
         
       - name: Upload APK
         uses: actions/upload-artifact@v4
         with:
           name: app-release
           path: app/build/outputs/apk/release/*.apk
-          if-no-files-found: warn
+          if-no-files-found: error
